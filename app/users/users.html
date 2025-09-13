@@ -1,0 +1,21 @@
+<div class="search-bar">
+  <input type="text" [(ngModel)]="searchText" placeholder="Search..." />
+  <button>Search</button>
+</div>
+
+<div class="users-container">
+  <div class="user-card" *ngFor="let user of filteredUsers">
+    <img [src]="user.image" alt="{{user.name}}" class="avatar" />
+    <h3>{{ user.name }}</h3>
+    <p>Email: {{ user.email }}</p>
+    <p>Phone: {{ user.phone }}</p>
+    <p>Birthdate: {{ user.birthdate }}</p>
+    <span [ngClass]="{
+      'role-admin': user.role === 'admin',
+      'role-user': user.role === 'user',
+      'role-moderator': user.role === 'moderator'
+    }">
+      {{ user.role }}
+    </span>
+  </div>
+</div>
